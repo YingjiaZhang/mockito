@@ -12,7 +12,7 @@ import java.util.*;
  * Will come handy when we offer tweaking strictness at the method level with annotation.
  * Should be relatively easy to improve and offer tweaking strictness per mock.
  */
-class UniversalTestListener implements MockitoTestListener {
+public class UniversalTestListener implements MockitoTestListener {
 
     private Strictness currentStrictness;
     private final MockitoLogger logger;
@@ -20,7 +20,7 @@ class UniversalTestListener implements MockitoTestListener {
     private Map<Object, MockCreationSettings> mocks = new IdentityHashMap<Object, MockCreationSettings>();
     private DefaultStubbingLookupListener stubbingLookupListener;
 
-    UniversalTestListener(Strictness initialStrictness, MockitoLogger logger) {
+    public UniversalTestListener(Strictness initialStrictness, MockitoLogger logger) {
         this.currentStrictness = initialStrictness;
         this.logger = logger;
 

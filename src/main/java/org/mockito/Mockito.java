@@ -4,6 +4,7 @@
  */
 package org.mockito;
 
+import org.mockito.internal.framework.DefaultMockitoHandler;
 import org.mockito.quality.Strictness;
 import org.mockito.internal.MockitoCore;
 import org.mockito.internal.creation.MockSettingsImpl;
@@ -2701,5 +2702,13 @@ public class Mockito extends ArgumentMatchers {
     @Incubating
     public static MockitoFramework framework() {
         return new DefaultMockitoFramework();
+    }
+
+    public static Handler initMocking(Object testClassInstance, Strictness strictness) {
+        return new DefaultMockitoHandler(testClassInstance, strictness);
+    }
+
+    public interface Handler {
+        void finishMocking();
     }
 }
